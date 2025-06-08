@@ -7,14 +7,14 @@ class RESULTPAGE(Helper):
 
     # locators
 
-    brand_checkbox = (By.XPATH, '//*[@id="brandNameFacet"]/button')
+    brand_checkbox = (By.XPATH, '//*[@id="brandNameFacet"]')
     brand_name = (By.XPATH, '//li[a//span[text()="RAEN Optics"]]')
-    price_checkbox = (By.XPATH, '//*[@id="priceFacet"]/button')
+    price_checkbox = (By.XPATH, '//*[@id="priceFacet"]')
     price = (By.XPATH, '//a//span[text()="$200.00 and Under"]')
-    color_checkbox = (By.XPATH, '//*[@id="priceFacet"]/button')
+    color_checkbox = (By.XPATH, '//*[@id="colorFacet"]')
     orange = (By.XPATH, '//a//span[text()="Orange"]')
     result_item_count = (By.XPATH, '//span[@class="wt-z"]')
-    find_selection = (By.XPATH, '//*[@id="products"]//article/a')
+    item_title = (By.XPATH, '//*[@id="products"]//article/a')
 
     def select_narrow_choices(self):
 
@@ -26,6 +26,6 @@ class RESULTPAGE(Helper):
         self.find_and_click(self.orange)
         result_count = self.find_elm(self.result_item_count, get_text=True)
         self.test_logger.info(f'Find result couint is {result_count}')
-        get_search_elm_text = self.find_elm(self.find_selection, get_text=True)
+        get_search_elm_text = self.find_elm(self.item_title, get_text=True)
         return get_search_elm_text
       
