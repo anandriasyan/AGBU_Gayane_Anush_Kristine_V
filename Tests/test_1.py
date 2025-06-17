@@ -26,8 +26,7 @@ def test_1(test_driver, test_logger):
 
     # Extract the first price value from the text
     get_price_from_text = re.search(r'\$([\d.,]+)', text)
-    test_logger.info(f"Price from icon: {get_price_from_text}")
-
+    
     if get_price_from_text:
         # Extract price as string, remove commas and trailing dot
         price_str = get_price_from_text.group(1).replace(',', '').rstrip('.')
