@@ -35,3 +35,4 @@ def test_logger(request):
     logger.info(f'{test_name} is started')
     yield logger  # Pause the fixture  and pass logger to test
     logger.info(f'{test_name} is finished')
+
