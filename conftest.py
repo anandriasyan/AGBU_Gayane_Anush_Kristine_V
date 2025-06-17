@@ -3,12 +3,15 @@ import pytest
 import logging
 import os
 from datetime import datetime
-# import allure
+import allure
+from selenium.webdriver.chrome.options import Options
 
 
 @pytest.fixture()
 def test_driver():
-    driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument("--headless")
+    driver = webdriver.Chrome(options=options)
     driver.maximize_window()
     yield driver
     driver.quit()
